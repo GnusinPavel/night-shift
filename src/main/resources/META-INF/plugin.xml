@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>io.github.gnusinpavel.night-shift</id>
+    <name>Night Shift</name>
+    <vendor email="pavel.sin.gnusin@gmail.com" url="https://gnusinpavel.github.io">Gnusin Pavel</vendor>
+
+    <description><![CDATA[
+      That plugin allows you to auto change light and dark theme when time has come!]]>
+    </description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+
+    <depends>com.intellij.modules.lang</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="io.github.gnusinpavel.nightshift.config.PreferencesConfigurable"/>
+        <applicationService serviceInterface="io.github.gnusinpavel.nightshift.services.ThemeService"
+                            serviceImplementation="io.github.gnusinpavel.nightshift.services.impl.ThemeServiceImpl"/>
+        <postStartupActivity implementation="io.github.gnusinpavel.nightshift.StartupActivity"/>
+    </extensions>
+
+</idea-plugin>
